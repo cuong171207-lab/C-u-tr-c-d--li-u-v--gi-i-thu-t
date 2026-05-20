@@ -2,9 +2,7 @@
 import time
 import random
 
-# ==========================================
 # BÀI 1: PHÂN TÍCH ĐỘ PHỨC TẠP CƠ BẢN
-# ==========================================
 
 def snippet_1(n):
     total = 0 
@@ -41,9 +39,7 @@ def snippet_4(n):
 # Độ phức tạp: O(n)
 # Giải thích: Vòng for chạy n lần, mỗi lần gọi hàm có độ phức tạp O(1).
 
-# ==========================================
 # BÀI 2: PHÂN TÍCH VÒNG LẶP BIẾN THỂ VÀ TỐI ƯU
-# ==========================================
 
 def snippet_5(n):
     total = 0
@@ -84,9 +80,7 @@ def snippet_8(arr):
 # Độ phức tạp: O(n)
 # Giải thích: Tạo set tốn O(n), vòng for chạy n lần với toán tử 'in' trên set chỉ tốn O(1).
 
-# ==========================================
 # BÀI 3: TỐI ƯU THUẬT TOÁN (TWO SUM)
-# ==========================================
 
 def two_sum_quadratic(arr, target):
     n = len(arr)
