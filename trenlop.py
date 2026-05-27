@@ -192,3 +192,20 @@ def solve_n_queens(n):
                 board.pop()
 # backtrack(0)
 # return result
+
+def activity_selection(activities):
+    """activities: list of tuples (start, finish)
+    return: list of selected activities"""
+    activities.sort(key=lambda x: x[1])
+    selected = [activities[0]]
+    last_finish = activities[0][1]
+    for i in range(1, len(activities)):
+        if activities[i][0] >= last_finish:
+            selected.append(activities[i])
+            last_finish = activities[i][1]
+    return selected
+
+activities = [(1, 4), (3, 5), (0, 6), (5, 7), (3, 8), (5, 9), (6, 10), (8, 11)]
+result = activity_selection(activities)
+print(result)
+
