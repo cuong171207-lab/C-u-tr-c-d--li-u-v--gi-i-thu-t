@@ -109,7 +109,7 @@
 #         return binary_seach_recursive(arr, target, mid + 1, right)
 #     else:
 #         return binary_seach_recursive(arr, target, left, mid - 1)
-# Sắp xếp 
+# Sắp xếp
 # def meger_sort(arr):
 #     if len(arr) <= 1:
 #         return arr
@@ -155,57 +155,192 @@
 # quick_sort_inplace(arr, 0, len(arr)-1)
 # print(arr)
 
-def permutation(nums):
-    result = []
-    def backtrack(path, remaining):
-        if len(path) == len(nums):
-            result.append(path[:])
-            return
-        for num in remaining:
-            path.append(num)
-            remaining.remove(num)
-            backtrack(path, remaining)
-            path.pop()
-            remaining.append(num)
-    backtrack([], nums)
-    return result
+# def permutation(nums):
+#     result = []
+#     def backtrack(path, remaining):
+#         if len(path) == len(nums):
+#             result.append(path[:])
+#             return
+#         for num in remaining:
+#             path.append(num)
+#             remaining.remove(num)
+#             backtrack(path, remaining)
+#             path.pop()
+#             remaining.append(num)
+#     backtrack([], nums)
+#     return result
 
-print(permutation([1,2,3]))
+# print(permutation([1,2,3]))
 
-def is_safe(board, row, col, n):
-    for prev_row in range(row):
-        prev_col = board[prev_row]
-        if prev_col == col or abs(prev_col - col) == abs(prev_row - row):
-            return False
-        return
-def solve_n_queens(n):
-    result = []
-    board = []
-    def backtrack(row):
-        if row == n:
-            result.append(board[:])
-            return
-        for col in range(n):
-            if is_safe(board, row, col, n):
-                board.append(col)
-                backtrack(row + 1)
-                board.pop()
-# backtrack(0)
-# return result
+# def is_safe(board, row, col, n):
+#     for prev_row in range(row):
+#         prev_col = board[prev_row]
+#         if prev_col == col or abs(prev_col - col) == abs(prev_row - row):
+#             return False
+#         return
+# def solve_n_queens(n):
+#     result = []
+#     board = []
+#     def backtrack(row):
+#         if row == n:
+#             result.append(board[:])
+#             return
+#         for col in range(n):
+#             if is_safe(board, row, col, n):
+#                 board.append(col)
+#                 backtrack(row + 1)
+#                 board.pop()
+# # backtrack(0)
+# # return result
 
-def activity_selection(activities):
-    """activities: list of tuples (start, finish)
-    return: list of selected activities"""
-    activities.sort(key=lambda x: x[1])
-    selected = [activities[0]]
-    last_finish = activities[0][1]
-    for i in range(1, len(activities)):
-        if activities[i][0] >= last_finish:
-            selected.append(activities[i])
-            last_finish = activities[i][1]
-    return selected
+# def activity_selection(activities):
+#     """activities: list of tuples (start, finish)
+#     return: list of selected activities"""
+#     activities.sort(key=lambda x: x[1])
+#     selected = [activities[0]]
+#     last_finish = activities[0][1]
+#     for i in range(1, len(activities)):
+#         if activities[i][0] >= last_finish:
+#             selected.append(activities[i])
+#             last_finish = activities[i][1]
+#     return selected
 
-activities = [(1, 4), (3, 5), (0, 6), (5, 7), (3, 8), (5, 9), (6, 10), (8, 11)]
-result = activity_selection(activities)
-print(result)
+# activities = [(1, 4), (3, 5), (0, 6), (5, 7), (3, 8), (5, 9), (6, 10), (8, 11)]
+# result = activity_selection(activities)
+# print(result)
 
+# def coin_change_greedy(amount, coins):
+#     coins.sort(reverse=True)
+#     result = []
+#     for coin in coins:
+#         while amount >= coin:
+#             result.append(coin)
+#             amount -= coin
+#     return result
+# coins = [25,10,5,1]
+# amount = 63
+# result = coin_change_greedy(amount, coins)
+# print(f"Xu cần dùng: {result}")
+# print(f"số lượng: {len(result)}")
+
+# graph = {
+#     'A': ['B', 'C'],
+#     'B': ['A','D', 'E'],
+#     'C': ['A', 'D'],
+#     'D': ['B', 'C'],
+#     'E': ['B'],
+# }
+
+# result = bfs(graph, 'A')
+# print(f"BFS tu A: {result}")
+
+
+# from collections import deque
+
+# def bfs(graph, start):
+#     visited = set()
+#     queue = deque([start])
+#     result = []
+#     while queue:
+#         visited = set()
+#         queue = deque([start])
+#         visited.add(start)
+#         result = []
+#         while queue:
+#             vertex = queue.popleft()
+#             result.append(vertex)
+#         for neighbor in graph[vertex]:
+#             if neighbor not in visited:
+#                 visited.add(neighbor)
+#                 queue.append(neighbor)
+#     return result
+
+# graph = {
+#     'A': ['B', 'C'],
+#     'B': ['A','D', 'E'],
+#     'C': ['A', 'D'],
+#     'D': ['B', 'C'],
+#     'E': ['B'],
+# }
+
+# result = dfs_recursive(graph, 'A')
+# print(f"BFS tu A: {result}")
+
+# def dfs_recursive(graph, start, visited=None):
+#     if visited is None:
+#         visited = set()
+#     if result is None:
+#         result = []
+#     visited.add(start)
+#     result.append(start)
+#     for neighbor in graph[start]:
+#         if neighbor not in visited:
+#             dfs_recursive(graph, neighbor, visited)
+#     return result
+
+# result = dfs_iterative(graph, 'A')
+# print(f"DFS tu A: {result}")
+# def dfs_iterative(graph, start):
+#     visited = set()
+#     stack = [start]
+#     result = []
+#     while stack:
+#         vertex = stack.pop()
+#         if vertex not in visited:
+#             visited.add(vertex)
+#             result.append(vertex)
+#             for neighbor in graph[vertex]:
+#                 if neighbor not in visited:
+#                     stack.append(neighbor)
+#     return result
+
+
+def has_cycle_directed(graph):
+    color = {}
+    for vertex in graph:
+        color[vertex] = "WHITE"
+
+    def dfs(vertex):
+        color[vertex] = "GRAY"
+        for neighbor in graph.get(vertex, []):
+            if color.get(neighbor) == "GRAY":
+                return True
+            elif color.get(neighbor) == "WHITE":
+                if dfs(neighbor):
+                    return True
+        color[vertex] = "BLACK"
+        return False
+
+    for vertex in graph:
+        if color[vertex] == "WHITE":
+            if dfs(vertex):
+                return True
+    return False
+
+
+if __name__ == "__main__":
+    graph_no_cycle = {"A": ["B", "C"], "B": ["C"], "C": []}
+
+    graph_with_cycle = {"A": ["B"], "B": ["C"], "C": ["A"]}
+
+    print("Kiểm tra đồ thị 1 (Không chu trình):", has_cycle_directed(graph_no_cycle))
+    print("Kiểm tra đồ thị 2 (Có chu trình):", has_cycle_directed(graph_with_cycle))
+
+
+def kruskal_mst(vertices, edger):
+    edges_sorted = sorted(edger, key=lambda e: e[0])
+    parent = make_set(vertices)
+
+    mst = []
+    total_weigh = 0
+    for w, u, v in edges_sorted:
+        root_u = find(parent, u)
+        root_v = find(parent, v)
+
+        if root_u != root_v:
+            mst.append((u, v, w))
+            total_weigh += w
+            union(parent, root_u, root_v)
+        if len(mst) == len(vertices) - 1:
+            break
+    return mst, total_weigh

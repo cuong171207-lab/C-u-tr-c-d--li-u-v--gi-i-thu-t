@@ -89,8 +89,8 @@ def is_palindrome(s):
     return is_palindrome(s[1:-1])
 
 print("\n--- Test Hàm 4: is_palindrome ---")
-print(f"is_palindrome('racecar') = {is_palindrome('racecar')}")   # True
-print(f"is_palindrome('python')  = {is_palindrome('python')}")    # False
+print(f"is_palindrome('racecar') = {is_palindrome('racecar')}")   
+print(f"is_palindrome('python')  = {is_palindrome('python')}")    
 
 
 
